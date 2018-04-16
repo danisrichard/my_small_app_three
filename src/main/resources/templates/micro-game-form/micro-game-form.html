@@ -1,0 +1,51 @@
+ <div th:fragment="column-search-content" xmlns:th="http://www.thymeleaf.org" id="column-select" class="uk-container">	    
+   <form method="POST" action="micro-game-index">
+    <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">A jatek kezdete elott kellene néhány apró dolog </legend>
+
+        <div class="uk-margin">
+            <input name="valami" class="uk-input" type="text" id="input-text" placeholder="Neved" required>
+        </div>
+        
+        <div class="uk-margin">
+        <div class="uk-form-label">Hány kört szeretnél?</div>
+        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid" id="radio-div" >
+            <label><input class="uk-radio" type="radio" name="radio1" value = "5" > 5</label><br>
+            <label><input class="uk-radio" type="radio" name="radio1" value = "10" > 10</label><br>
+            <label><input class="uk-radio" type="radio" name="radio1" value = "15" required> 15</label>
+        </div>
+    </div>
+    	<button class="uk-button uk-button-default"  type="submit">
+				Start game
+		</button>
+    </fieldset>
+</form>
+<script>
+
+	$(document).ready(function(){
+	
+		var selectVal = "";
+		var nameVal = "";
+		
+	
+		$("#input-text").change(function() {
+			console.log($(this).val());
+			nameVal = $(this).val();
+		
+		});	
+			
+		$("#radio-div").change(function() {	
+				var selected = $("#radio-div input[type='radio']:checked");
+				
+				if (selected.length > 0) {
+				    selectedVal = selected.val();
+				    
+				    console.log(selectedVal);
+				}	
+		});	
+		
+	});
+
+</script>
+</div>
