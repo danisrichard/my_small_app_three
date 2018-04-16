@@ -1,5 +1,7 @@
 package com.example.learn_project.entity;
 
+import java.util.List;
+
 public class MicroGamer {
 	
 	private boolean isRobot;
@@ -42,6 +44,6 @@ public class MicroGamer {
 
 	public void setChoice(String choice) {
 		this.choice = choice;
-	}	
+	}
 	
 }
