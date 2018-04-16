@@ -1,11 +1,11 @@
 package com.example.learn_project.entity;
 
-public class ShopUser {
+public class User {
 
 	private String shopUserName;
 	private String emailAddress;
 	
-	public ShopUser(String shopUserName, String emailAddress) {
+	public User(String shopUserName, String emailAddress) {
 		this.shopUserName = shopUserName;
 		this.emailAddress = emailAddress;
 	}
