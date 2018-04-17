@@ -1,7 +1,7 @@
  <div th:fragment="latest-game-results" 
- 		xmlns:th="http://www.thymeleaf.org" id="latestGamesResults" class="uk-container">	    
+ 		xmlns:th="http://www.thymeleaf.org" id="latest-game-results" class="uk-container">	    
 	 <div class="uk-container">
-	 
+	 		<div th:if ="${error}" > <span th:text="${error}"></span></div>
 	 		<h1>Top 10 eredmény:</h1>
 	 	 	<!-- ide majd egy tábla jön és kiirja a legutóbbi eredményeket -->
 	 </div>
