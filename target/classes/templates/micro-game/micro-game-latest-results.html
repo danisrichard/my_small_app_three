@@ -1,0 +1,33 @@
+<div th:fragment="latest-game-results"
+	xmlns:th="http://www.thymeleaf.org" id="latest-game-results"
+	class="uk-container">
+	<div class="uk-container">
+		<div th:if="${error}">
+			<div class="uk-card uk-card-hover uk-card-body">
+            <p th:text="${error}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        	</div>
+		</div>
+		<div th:if="${listOfResult}">
+
+			<h1>Top 10 eredm�ny!!!</h1>
+			
+			<table class="uk-table uk-table-hover uk-table-divider">
+				
+				<thead>
+					<tr>
+						<th> J�t�kos1 </th>
+						<th> J�t�kos2 </th> 
+						<th> Eredm�ny </th> 
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!-- th:each="resultList : ${listOfResult}" -->
+						<!-- th:text="${resultList.playerName}" -->
+						<!-- th:text="${resultList.playerName}" -->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

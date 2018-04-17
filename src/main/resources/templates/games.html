@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<div class="uk-container">
+		<div
+			class="uk-background-cover uk-position-cover uk-panel uk-flex-middle index-background">
+			<div class="uk-child-width-1-2@s uk-padding-large" uk-grid>
+				<div>
+					<div class="uk-light uk-background-secondary uk-padding">
+						<h3 th:text="${game1}"></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua.</p>
+						<div class="uk-inline">
+							<button class="uk-button uk-button-default" type="button">Játék
+								inditás</button>
+							<div uk-drop="mode: click">
+								<div
+									class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
+									<div id="columnSearchContent"
+										th:replace="micro-game-form/micro-game-form"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-dark uk-background-muted uk-padding">
+						<h3 th:text="${game2}"></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua.</p>
+						<button class="uk-button uk-button-default">Start</button>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="latest-game-results"
+				th:replace="micro-game/micro-game-latest-results :: latest-game-results"></div>
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>

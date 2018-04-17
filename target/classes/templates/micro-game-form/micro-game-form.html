@@ -5,7 +5,7 @@
         <legend class="uk-legend">A jatek kezdete elott kellene néhány apró dolog </legend>
 
         <div class="uk-margin">
-            <input name="valami" class="uk-input" type="text" id="input-text" placeholder="Neved" required>
+            <input name="playerName" class="uk-input" type="text" id="input-text" placeholder="Neved" required>
         </div>
         
         <div class="uk-margin">
@@ -27,7 +27,6 @@
 	
 		var selectVal = "";
 		var nameVal = "";
-		
 	
 		$("#input-text").change(function() {
 			console.log($(this).val());
@@ -37,10 +36,8 @@
 			
 		$("#radio-div").change(function() {	
 				var selected = $("#radio-div input[type='radio']:checked");
-				
 				if (selected.length > 0) {
 				    selectedVal = selected.val();
-				    
 				    console.log(selectedVal);
 				}	
 		});	
