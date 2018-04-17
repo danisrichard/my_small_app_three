@@ -1,4 +1,4 @@
-package com.example.learn_project.errors;
+package com.example.learn_project.config;
 
 import java.io.IOException;
 
@@ -13,13 +13,13 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyAccesDenienHandler implements AccessDeniedHandler {
+public class MyAccessDeniedHandler implements AccessDeniedHandler {
 
 	@Override
 	public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 		AccessDeniedException e) throws IOException, ServletException {
 
-		Authentication  auth = SecurityContextHolder.getContext().getAuthentication();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 		if (auth != null) {
 			//Logging

@@ -1,4 +1,4 @@
-package com.example.learn_project.controller;
+package com.example.learn_project.errors;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

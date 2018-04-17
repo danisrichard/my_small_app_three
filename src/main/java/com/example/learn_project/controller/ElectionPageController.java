@@ -8,7 +8,7 @@ public class ElectionPageController {
 
 	@GetMapping("/election")
 	public String electionLoader() {
-		return null;
+		return "election/election-index";
 	}
 	
 }
