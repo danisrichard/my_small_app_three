@@ -22,8 +22,6 @@ public class IndexPageController {
 	@GetMapping("/")
 	public String loadLoginPage() {
 		
-		System.out.println(mcg.tesztQuery());
-		
 		return "login";
 	}
 }

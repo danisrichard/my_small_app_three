@@ -3,8 +3,10 @@
 <head th:replace="fragments/head :: head"></head>
 <body>
 	<div class="uk-container">
-		<h1>Választás</h1>
-
+		<h1 class="uk-padding-large">Szavazás</h1>
+		<div id="addNewChoice"
+					th:replace="election/add-new-election"></div>
+		
 	</div> 
 </body>
 <script>

@@ -1,46 +1,64 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head"></head>
 <body>
-	 <div class="uk-container">
-	   <h3>Kezdődjék a(z) kör</h3>
-			   <div class="uk-child-width-1-3@s" uk-grid>
-		     <div>
-		        <div class="uk-card uk-card-default">
-		            <div class="uk-card-body">
-		                <h3 class="uk-card-title">Papír</h3>
-		            </div>
-		            <div class="uk-card-media-bottom">
-		                <img src=url(https://cdn2.iconfinder.com/data/icons/lightly-icons/24/file-alt-192.png) alt="">
-		            </div>
-		        </div>
-		    </div>
-		    <div>
-		        <div class="uk-card uk-card-default">
-		            <div class="uk-card-body">
-		                <h3 class="uk-card-title">Papír</h3>
-		            </div>
-		            <div class="uk-card-media-bottom">
-		                <img src="../docs/images/light.jpg" alt="">
-		            </div>
-		        </div>
-		    </div>
-		      <div>
-		        <div class="uk-card uk-card-default">
-		            <div class="uk-card-body">
-		                <h3 class="uk-card-title">Olló</h3>
-		            </div>
-		            <div class="uk-card-media-bottom">
-		                <img src="../docs/images/light.jpg" alt="">
-		            </div>
-		        </div>
-		    </div>
-	    </div>
-	    
-	    <div id="microGameCurrentResult" th:replace="micro-game/micro-game-current-result"></div>  
-	      
-</div>
-		
+	<div
+		class="uk-background-cover uk-position-cover uk-panel uk-flex-middle games-background">
+		<div class="uk-container ">
+			<div class="uk-padding-large">
+				<h2 class="white-color">Kezdődjék a kör</h2>
+				<hr class="uk-divider-small">
+			</div>
+
+			<div class="uk-padding-large">
+				<div class="uk-child-width-1-3@s" uk-grid>
+					<div>
+						<a name="ko" href="https//wwww.google.com">
+							<div class="uk-card uk-card-default uk-hover">
+								<div class="uk-card-body">
+									<h3 class="uk-card-title">Kő</h3>
+								</div>
+								<div class="uk-card-media-bottom">
+									<img
+										src=url(https://cdn2.iconfinder.com/data/icons/lightly-icons/24/file-alt-192.png)
+										alt="">
+								</div>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a name="papir" href="https//wwww.google.com">
+							<div class="uk-card uk-card-default uk-hover">
+								<div class="uk-card-body">
+									<h3 class="uk-card-title">Papír</h3>
+								</div>
+								<div class="uk-card-media-bottom">
+									<img src="../static/lib/img/paper.png" alt="">
+								</div>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a name="ollo" href="https//wwww.google.com">
+							<div class="uk-card uk-card-default  uk-hover">
+								<div class="uk-card-body">
+									<h3 class="uk-card-title">Olló</h3>
+								</div>
+								<div class="uk-card-media-bottom">
+									<img src="../docs/images/light.jpg" alt="">
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="uk-padding-large">
+				<div id="microGameCurrentResult"
+					th:replace="micro-game/micro-game-current-result"></div>
+			</div>
+		</div>
+	</div>
 </body>
 
 <script>

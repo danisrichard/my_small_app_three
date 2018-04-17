@@ -18,17 +18,18 @@ public class MicroGameController {
 	public String loadGameChoice(Model model) {
 
 		model.addAttribute("game1", "Kő-papir-olló!");
-		model.addAttribute("game2", "404");
+		model.addAttribute("game2", "Itt nincs játék, viszont kipróbálhatod a hibakezelést... ");
 
 		List<String> listofResults = new ArrayList<>();
 
 		if (listofResults.isEmpty()) {
 
 			model.addAttribute("error", "Jeleneleg nincs megjelenithő adat - játsz egy párat :)");
-		}
+		}else {
+			
+			model.addAttribute("listOfResult", listofResults);
 		
-		model.addAttribute("listOfResult", listofResults);
-
+		}
 		return "/games";
 	}
 
