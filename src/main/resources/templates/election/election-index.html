@@ -1,13 +1,24 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head"></head>
 <body>
 	<div class="uk-container">
 		<h1 class="uk-padding-large">Szavazás</h1>
-		<div id="addNewChoice"
-					th:replace="election/add-new-election"></div>
-		
-	</div> 
+
+		<div class="uk-position-medium uk-position-top-right">
+			<button href="#toggle-animation" class="uk-button uk-button-default"
+				type="button"
+				uk-toggle="target: #toggle-animation; animation: uk-animation-fade ; cls:false">+</button>
+		</div>
+		<div id="toggle-animation"
+			class="uk-card uk-card-default uk-card-body uk-margin-small">
+			<h3>Új szavavazás hozzáadása</h3>
+
+			<div id="addNewChoice" th:replace="election/add-new-election"></div>
+
+		</div>
+	</div>
 </body>
 <script>
 </script>

@@ -17,6 +17,7 @@
 				</form>
 			</div>
 
+			<!-- 3 card-section -->
 			<div class="uk-position-center uk-overlay ">
 				<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match "
 					uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500; repeat: true"
@@ -48,19 +49,31 @@
 				</div>
 			</div>
 		</div>
-		<div class="uk-position-small uk-position-bottom-left"	>	
-			<a href="#offcanvas-slide" class="uk-button uk-button-default"
-			uk-toggle>App információ</a>
-		</div>
 
+		<!--end 3 card-section -->
+
+		<!-- about-section -->
+		<div class="uk-position-small uk-position-bottom-left">
+			<a href="#offcanvas-slide" class="uk-button uk-button-default"
+				uk-toggle>App információ</a>
+		</div>
 		<div id="offcanvas-slide" uk-offcanvas>
 			<div class="uk-offcanvas-bar">
+				<button class="uk-offcanvas-close" type="button" uk-close></button>
 				<h2>My Spring App</h2>
+				<hr class="uk-divider-small">
 				<h3>Információk</h3>
-				
-
+				<div>
+					<h4>Verziószám:</h4>
+					<p th:text="${appVersion}"></p>
+				</div>
+				<div>
+					<h4>App neve:</h4>
+					<p th:text="${appName}"></p>
+				</div>
 			</div>
 		</div>
+		<!-- end about-section -->
 	</div>
 
 </body>

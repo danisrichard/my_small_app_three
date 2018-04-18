@@ -6,6 +6,18 @@ INSERT INTO ELECTION_TABLE VALUES(4,'Yugioh','Donec congue lorem nisl, in accums
 INSERT INTO ELECTION_TABLE VALUES(5,'Pokemon','Maecenas ac leo porttitor ipsum placerat elementum. ',6);
 INSERT INTO ELECTION_TABLE VALUES(6,'PUBG','Maecenas tincidunt fermentum leo in ornare.',8);
 
-INSERT INTO MICRO_GAME_USER VALUES(1,'Pelda','1:2');
-INSERT INTO MICRO_GAME_USER VALUES(2,'PeldaEllenfele','3:4');
-INSERT INTO MICRO_GAME_USER VALUES(3,'Boss','6:2');
+CREATE SEQUENCE user_seq START WITH 1;
+
+INSERT INTO MICRO_GAME_USER VALUES(user_seq.NEXTVAL,'Pelda',SYSDATE);
+
+COMMIT;
+
+INSERT INTO MICRO_GAME_USER VALUES(user_seq.NEXTVAL,'PeldaEllenfele',SYSDATE);
+
+COMMIT;
+
+INSERT INTO MICRO_GAME_USER VALUES(user_seq.NEXTVAL,'Boss',SYSDATE);
+
+commit;
+
+INSERT INTO LATEST_RESULT_TABLE(user_id,user_score,update_time) values (2,'2 - 3',SYSDATE);

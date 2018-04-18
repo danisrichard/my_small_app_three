@@ -3,8 +3,31 @@
 <head th:replace="fragments/head :: head"></head>
 <body>
 	<div class="uk-container">
+		<div class="uk-padding-small">
 		<h1>Shop site</h1>
-	</div> 
+		</div>
+		
+		<!-- cart-button -->
+		<div class="uk-position-small uk-position-top-right">
+			<a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>Kosárelemek</a>
+		</div>
+		<div id="offcanvas-slide" uk-offcanvas>
+			<div class="uk-offcanvas-bar">
+			
+			 <button class="uk-offcanvas-close" type="button" uk-close></button>
+			
+				<div id="cart-item"
+										th:replace="shop/shop-cart"></div>
+			</div>
+		
+		</div>
+		<!-- end cart-button -->
+		<!-- all shop items -->
+		
+		
+		<!-- end shop items -->
+	</div>
+
 </body>
 <script>
 </script>

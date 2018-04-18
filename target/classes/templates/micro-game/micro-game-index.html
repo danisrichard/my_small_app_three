@@ -5,63 +5,88 @@
 <body>
 	<div
 		class="uk-background-cover uk-position-cover uk-panel uk-flex-middle games-background">
-		<div class="uk-container ">
-			<div class="uk-padding-large">
-				<h2 class="white-color">Kezdődjék a kör</h2>
+		<div class="uk-container">
+			<div class="uk-padding-small">
+				<h2 class="white-color">Kezdődjék a játék!</h2>
 				<hr class="uk-divider-small">
 			</div>
+			
+			 <div class="uk-position-small uk-position-top-right">
+			 	<a class="uk-button uk-button-default save-result-button">Eredmény mentése és kilépés</a>
+			 </div>
 
-			<div class="uk-padding-large">
+			<div class="uk-padding-large" id="mini-game-choice">
 				<div class="uk-child-width-1-3@s" uk-grid>
 					<div>
-						<a name="ko" href="https//wwww.google.com">
-							<div class="uk-card uk-card-default uk-hover">
-								<div class="uk-card-body">
-									<h3 class="uk-card-title">Kő</h3>
-								</div>
-								<div class="uk-card-media-bottom">
-									<img
-										src=url(https://cdn2.iconfinder.com/data/icons/lightly-icons/24/file-alt-192.png)
-										alt="">
-								</div>
+
+						<div class="uk-card uk-card-default uk-hover">
+							<div class="uk-card-body">
+								<button value="rock" class="player-choice uk-button uk-button-danger uk-button-large uk-position-center">Kő</button>
 							</div>
-						</a>
+						</div>
 					</div>
 					<div>
-						<a name="papir" href="https//wwww.google.com">
-							<div class="uk-card uk-card-default uk-hover">
-								<div class="uk-card-body">
-									<h3 class="uk-card-title">Papír</h3>
-								</div>
-								<div class="uk-card-media-bottom">
-									<img src="../static/lib/img/paper.png" alt="">
-								</div>
+
+						<div class="uk-card uk-card-default uk-hover">
+							<div class="uk-card-body">
+
+								<button value="paper" class="player-choice uk-button uk-button-danger uk-button-large uk-position-center">Papír</button>
+
 							</div>
-						</a>
-					</div>
-					<div>
-						<a name="ollo" href="https//wwww.google.com">
+						</div>
+						</div>
+						<div>
+
 							<div class="uk-card uk-card-default  uk-hover">
 								<div class="uk-card-body">
-									<h3 class="uk-card-title">Olló</h3>
-								</div>
-								<div class="uk-card-media-bottom">
-									<img src="../docs/images/light.jpg" alt="">
+									<button value="scissors" class="player-choice uk-button uk-button-danger uk-button-large uk-position-center">Olló</button>
 								</div>
 							</div>
-						</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="uk-padding-large">
-				<div id="microGameCurrentResult"
-					th:replace="micro-game/micro-game-current-result"></div>
+
+				<!-- latest-result -->
+				<div class=" uk-background-cover games-background uk-container">
+					<div id="microGameCurrentResult"
+						th:replace="micro-game/micro-game-current-result"></div>
+				</div>
+				<!-- end latest-result -->
+
 			</div>
 		</div>
-	</div>
 </body>
 
 <script>
+
+$(document).ready(function(){
+
+		$(".save-result-button").click(function(){
+			ajaxGet(
+				'/save-game',
+				null,
+				function(result){
+					console.log('dsadsa');
+					window.location.href = "/games-choice";
+				}
+			)
+		});
+
+	
+		$(".player-choice").click(function() {
+			
+			console.log($(this).val());
+			
+			ajaxGet(
+				'/playgame',
+				{ playerChoice : $(this).val() },
+				function(result){
+					$("#microGameCurrentResult").replaceWith(result);
+				}
+			)
+			
+		});
+});
 
 </script>
 

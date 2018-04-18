@@ -9,22 +9,19 @@
 		</div>
 		<div th:if="${listOfResult}">
 
-			<h1>Top 10 eredmény!!!</h1>
+			<h1>Legfrisebb eredmÃ©nyek</h1>
 			
 			<table class="uk-table uk-table-hover uk-table-divider">
 				
 				<thead>
 					<tr>
-						<th> Játékos1 </th>
-						<th> Játékos2 </th> 
-						<th> Eredmény </th> 
+						<th> JÃ¡tÃ©kos </th>
+						<th> EredmÃ©ny </th> 
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<!-- th:each="resultList : ${listOfResult}" -->
-						<!-- th:text="${resultList.playerName}" -->
-						<!-- th:text="${resultList.playerName}" -->
+					<tr th:each="resultList : ${listOfResult}">
+						<th th:text="${resultList.playerName}" ></th>
 					</tr>
 				</tbody>
 			</table>

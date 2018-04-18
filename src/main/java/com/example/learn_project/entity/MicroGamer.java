@@ -1,17 +1,31 @@
 package com.example.learn_project.entity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.mockito.internal.util.StringUtil;
+import org.springframework.util.StringUtils;
 
 public class MicroGamer {
 	
 	private boolean isRobot;
 	private String playerName;
-	private int result;
 	private String choice;
+	private List<String> listString;
 	
 	public MicroGamer(String name, boolean isRobot) {
 		this.playerName = name;
 		this.isRobot = isRobot;
+	}
+	
+	public MicroGamer(String name,String resultList) {
+		this.playerName = name;
+		
+		listString = new ArrayList<>();
+		if(!StringUtils.isEmpty(resultList)) {
+			listString = Arrays.asList(resultList.split(","));
+		}
 	}
 
 	public boolean isRobot() {
@@ -20,6 +34,16 @@ public class MicroGamer {
 
 	public void setRobot(boolean isRobot) {
 		this.isRobot = isRobot;
+	}
+	
+	
+
+	public List<String> getListString() {
+		return listString;
+	}
+
+	public void setListString(List<String> listString) {
+		this.listString = listString;
 	}
 
 	public String getPlayerName() {
@@ -30,16 +54,19 @@ public class MicroGamer {
 		this.playerName = playerName;
 	}
 
-	public int getResult() {
-		return result;
-	}
-
-	public void setResult(int result) {
-		this.result = result;
-	}
-
 	public String getChoice() {
-		return choice;
+		
+		int randomNumb = (int)(Math.random()*3)+1;
+		
+		switch (randomNumb) {
+		case 1 : return "ollo";
+		case 2 : return "papir";
+		case 3: return "ko";
+		default:
+			break;
+		}
+				
+		return "semmi";
 	}
 
 	public void setChoice(String choice) {
