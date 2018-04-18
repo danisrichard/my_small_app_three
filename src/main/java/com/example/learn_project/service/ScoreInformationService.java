@@ -5,20 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.learn_project.dao.game.GamerRepository;
 import com.example.learn_project.dao.game.ScoreRepository;
 import com.example.learn_project.entity.MicroGamer;
+import com.example.learn_project.entity.PlayerScore;
 
 @Service
-public class MicroGameInformationService {
+public class ScoreInformationService {
 
 	@Autowired
-	ScoreRepository mcg;
+	ScoreRepository scoreRepository;
 	
-	public List<MicroGamer> getAllResult() {
-		return mcg.getLatestResults();
+	@Autowired
+	GamerRepository gamerRepository;
+	
+	public List<PlayerScore> getAllResult() {
+		return scoreRepository.getLatestResults();
 	}
 	
 	public void setNewResults(String result,String name) {
-		mcg.updateResult(name, result);
+		gamerRepository.updateResult(result,name);
 	}
 }

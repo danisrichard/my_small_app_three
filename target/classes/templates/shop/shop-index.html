@@ -1,31 +1,37 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head"></head>
 <body>
 	<div class="uk-container">
 		<div class="uk-padding-small">
-		<h1>Shop site</h1>
+			<h1>Shop site</h1>
 		</div>
-		
+
 		<!-- cart-button -->
 		<div class="uk-position-small uk-position-top-right">
-			<a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>Kosárelemek</a>
+			<a href="#offcanvas-slide" class="uk-button uk-button-default"
+				uk-toggle>Kosárelemek</a>
 		</div>
 		<div id="offcanvas-slide" uk-offcanvas>
 			<div class="uk-offcanvas-bar">
-			
-			 <button class="uk-offcanvas-close" type="button" uk-close></button>
-			
-				<div id="cart-item"
-										th:replace="shop/shop-cart"></div>
+
+				<button class="uk-offcanvas-close" type="button" uk-close></button>
+
+				<div id="cart-item" th:replace="shop/shop-cart"></div>
 			</div>
-		
 		</div>
-		<!-- end cart-button -->
-		<!-- all shop items -->
 		
-		
-		<!-- end shop items -->
+		<div th:if="${listOfShopItems}">
+			<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+				<div>
+					<div class="uk-card uk-card-default uk-card-body">
+						<h3 class="uk-card-title">Default</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>

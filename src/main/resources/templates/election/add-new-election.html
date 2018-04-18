@@ -1,4 +1,41 @@
 <div th:fragment="addNewChoice" xmlns:th="http://www.thymeleaf.org" 
 	id="microGameCurrentResult" class="uk-container">	 
-	<p> Új elem hozzáadása </p>
+	   
+   <form> <!-- method="POST" action="election-index"  -->
+    <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend"> Új szavazati elem hozzáadása </legend>
+
+        <div class="uk-margin">
+            <input name="gameName" class="uk-input uk-form-width-medium name-text" type="text" id="input-text" placeholder="Játék neve" required>
+        </div>
+        
+        <div class="uk-margin">
+            <textarea name="gameDesc" class="uk-textarea desc-text" rows="4" placeholder="Apró leírás a játékhoz"></textarea>
+        </div>
+        
+        <div class="uk-margin">
+    </div>
+    	<button class="uk-button uk-button-default"  type="submit">
+				Új elem hozzáadása
+		</button>
+    </fieldset>
+</form>
+<script>
+
+	$(document).ready(function(){
+	
+		$(".name-text").change(function() {
+			console.log($(this).val());
+		
+		});	
+	
+		$(".desc-text").change(function() {
+			console.log($(this).val());
+		
+		});	
+		
+	});
+
+</script>
 </div>  
