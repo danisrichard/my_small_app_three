@@ -20,7 +20,7 @@ public class ShopService {
 	}
 
 	public void updateOrders(Map<ShopItem, Integer> shopItems) {
-			shopRepository.updateShopItem(shopItems);
+		shopRepository.updateShopItem(shopItems);
 	}
 	
 	public Map<ShopItem, Integer> getItemsByOrderId(int orderID){
