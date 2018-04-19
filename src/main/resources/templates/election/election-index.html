@@ -3,23 +3,55 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head"></head>
 <body>
-	<div class="uk-container">
-		<h1 class="uk-padding-large">Szavazás</h1>
-
-		<div class="uk-position-medium uk-position-top-right">
-			<button href="#toggle-animation" class="uk-button uk-button-default"
-				type="button"
-				uk-toggle="target: #toggle-animation; animation: uk-animation-fade ; cls:false">+</button>
-		</div>
-		<div id="toggle-animation"
-			class="uk-card uk-card-default uk-card-body uk-margin-small">
-			<h3>Új szavavazás hozzáadása</h3>
-
-			<div id="addNewChoice" th:replace="election/add-new-election"></div>
-
+	<div
+		class="uk-background-cover uk-panel uk-flex-middle index-background">
+		<div class="uk-container">
+			<div class="uk-padding-small">
+				<h1>Szavazás</h1>
+				<hr class="uk-divider-small">
+				<h3>Itt lehet szavazni, hogy a jövőben milyen appok lehessen a
+					játékok menüpont alatt.</h3>
+			</div>
+			<div class="uk-position-medium uk-position-top-right">
+				<button href="#toggle-animation" class="uk-button uk-button-default"
+					type="button"
+					uk-toggle="target: #toggle-animation; animation: uk-animation-fade ;">+</button>
+			</div>
+			<div id="toggle-animation"
+				class="uk-card uk-card-default uk-card-body uk-margin-small" hidden>
+				<div id="addNewChoice" th:replace="election/add-new-election"></div>
+			</div>
+			<div th:if="!${listOfElection}">
+				<h3 class="uk-align-center uk-padding-large">
+					Jelenleg nincsen egyetlen elem amire szavazhatsz. Vegyél fel <a
+						uk-toggle="target: #toggle-animation; animation: uk-animation-fade ;">újat</a>
+				</h3>
+			</div>
+			<div th:if="${listOfElection}" class="uk-padding-small">
+				<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match"
+					uk-grid>
+					<div th:each="listOfElection : ${listOfElection}">
+						<div class="uk-card uk-card-default uk-card-body">
+							<h3 class="uk-card-title"
+								th:text="${listOfElection.electionName}">Default</h3>
+							<p th:text="${listOfElection.itemDescription}"></p>
+							<button th:value="${listOfElection.electionName}"
+								class="uk-button uk-button-secondary election-choice">Szavazás</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
 <script>
+$(document).ready(function(){
+
+	$(".election-choice").click(function() {
+				
+				console.log($(this).val());
+	});
+			
+});
 </script>
 </html>

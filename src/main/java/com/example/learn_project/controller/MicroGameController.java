@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.learn_project.entity.MicroGamer;
-import com.example.learn_project.service.MicroGameInformationService;
+import com.example.learn_project.entity.PlayerScore;
+import com.example.learn_project.service.ScoreInformationService;
 import com.example.learn_project.service.MicroGameService;
 
 @Controller
 public class MicroGameController {
 	
 	@Autowired
-	MicroGameService microGameService;
+	private MicroGameService microGameService;
 	
 	@Autowired
-	MicroGameInformationService mGameInformationService;
+	private ScoreInformationService mGameInformationService;
 
 	@GetMapping("/games-choice")
 	public String loadGameChoice(Model model) {
@@ -31,7 +32,7 @@ public class MicroGameController {
 		model.addAttribute("game1", "Kő-papir-olló!");
 		model.addAttribute("game2", "Itt nincs játék, viszont kipróbálhatod a hibakezelést... ");
 
-		List<MicroGamer> listofResults = new ArrayList<>();
+		List<PlayerScore> listofResults = new ArrayList<>();
 		
 		listofResults = mGameInformationService.getAllResult();
 		
@@ -39,11 +40,6 @@ public class MicroGameController {
 
 			model.addAttribute("error", "Jeleneleg nincs megjelenithő adat - játsz egy párat :)");
 		}else {
-			
-			for(int i = 0 ; i < listofResults.size();i++) {
-				
-				System.out.println(listofResults.get(i));
-			}
 			
 			model.addAttribute("listOfResult", listofResults);
 		
@@ -65,16 +61,8 @@ public class MicroGameController {
 	
 	@GetMapping("/playgame")
 	public String playGame(Model model,HttpSession httpSession, @RequestParam("playerChoice") String playerChoice) {
-		
-		MicroGamer mg1 = (MicroGamer) httpSession.getAttribute("mg1");
-		MicroGamer mg2 = (MicroGamer) httpSession.getAttribute("mg2");
-		
-		System.out.println("My choice:" + playerChoice);
-		
+				
 		ArrayList<String> resultList = microGameService.whoWhoWinRound(playerChoice);
-		
-		System.out.println(microGameService.getResult());
-		
 		
 		model.addAttribute("matchResult",microGameService.getResult());
 		model.addAttribute("latestResult", resultList.get(1).toUpperCase() + "!");

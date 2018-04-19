@@ -7,13 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.learn_project.dao.game.ScoreRepository;
-import com.example.learn_project.service.MicroGameInformationService;
+import com.example.learn_project.service.ScoreInformationService;
 
 @Controller
 public class IndexPageController {
 	
 	@Autowired
-	MicroGameInformationService mcg;
+	private ScoreInformationService mcg;
 	
 	@Value("${app.version}")
 	private String appVersion;
@@ -34,6 +34,14 @@ public class IndexPageController {
 	public String loadLoginPage() {
 		
 		return "login";
+	}
+	
+	@GetMapping("/logout")
+	public String logooutPage() {
+		
+		// még nem müködik
+		
+		return "redirect:/login";
 	}
 	
 }

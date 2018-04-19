@@ -16,12 +16,13 @@
 				<thead>
 					<tr>
 						<th> Játékos </th>
-						<th> Eredmény </th> 
+						<th> Eredmények </th> 
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="resultList : ${listOfResult}">
 						<th th:text="${resultList.playerName}" ></th>
+						<th th:text="${resultList.score}"></th>
 					</tr>
 				</tbody>
 			</table>

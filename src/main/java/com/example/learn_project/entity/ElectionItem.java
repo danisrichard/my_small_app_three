@@ -1,12 +1,12 @@
 package com.example.learn_project.entity;
 
-public class ElectionItems {
+public class ElectionItem {
 
 	private String electionName;
 	private String itemDescription;
 	private String voteNumb;
 	
-	public ElectionItems(String electionName, String itemDescription) {
+	public ElectionItem(String electionName, String itemDescription) {
 		this.electionName = electionName;
 		this.itemDescription = itemDescription;
 	}
