@@ -5,7 +5,7 @@
 <body>
 	<div class="uk-container">
 		<div class="uk-padding-small">
-			<h1>Shop site</h1>
+			<h1 class="uk-heading-line">Shop site</h1>
 		</div>
 
 		<!-- cart-button -->
@@ -20,6 +20,10 @@
 
 				<div id="cart-item" th:replace="shop/shop-cart"></div>
 			</div>
+		</div>
+		
+		<div th:if="!${listOfShopItems}">
+			<h3> A webshopban nincsen tartalom jelenleg.</h3>
 		</div>
 		
 		<div th:if="${listOfShopItems}">

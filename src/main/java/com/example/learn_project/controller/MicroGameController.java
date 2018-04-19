@@ -21,10 +21,10 @@ import com.example.learn_project.service.MicroGameService;
 public class MicroGameController {
 	
 	@Autowired
-	MicroGameService microGameService;
+	private MicroGameService microGameService;
 	
 	@Autowired
-	ScoreInformationService mGameInformationService;
+	private ScoreInformationService mGameInformationService;
 
 	@GetMapping("/games-choice")
 	public String loadGameChoice(Model model) {
@@ -40,11 +40,6 @@ public class MicroGameController {
 
 			model.addAttribute("error", "Jeleneleg nincs megjelenithő adat - játsz egy párat :)");
 		}else {
-			
-			for(int i = 0 ; i < listofResults.size();i++) {
-				
-				System.out.println(listofResults.get(i));
-			}
 			
 			model.addAttribute("listOfResult", listofResults);
 		
@@ -66,12 +61,7 @@ public class MicroGameController {
 	
 	@GetMapping("/playgame")
 	public String playGame(Model model,HttpSession httpSession, @RequestParam("playerChoice") String playerChoice) {
-		
-		MicroGamer mg1 = (MicroGamer) httpSession.getAttribute("mg1");
-		MicroGamer mg2 = (MicroGamer) httpSession.getAttribute("mg2");
-		
-		System.out.println("My choice:" + playerChoice);
-		
+				
 		ArrayList<String> resultList = microGameService.whoWhoWinRound(playerChoice);
 		
 		model.addAttribute("matchResult",microGameService.getResult());

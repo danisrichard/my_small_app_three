@@ -1,10 +1,16 @@
 <div th:fragment="addNewChoice" xmlns:th="http://www.thymeleaf.org" 
 	id="microGameCurrentResult" class="uk-container">	 
-	   
-   <form> <!-- method="POST" action="election-index"  -->
+	    
+   <form  method="POST" action="add-election" >
     <fieldset class="uk-fieldset">
 
         <legend class="uk-legend"> Új szavazati elem hozzáadása </legend>
+        				<hr class="uk-divider-small">
+      
+        <div uk-alert>
+		    <button class="uk-alert-close" type="button" uk-close></button>
+		    <p>A te elemed jelenleg a list alján fog megjelenni. Későbbiek folyamán lehet rendezni majd a listát! </p>
+		</div>
 
         <div class="uk-margin">
             <input name="gameName" class="uk-input uk-form-width-medium name-text" type="text" id="input-text" placeholder="Játék neve" required>
@@ -16,13 +22,12 @@
         
         <div class="uk-margin">
     </div>
-    	<button class="uk-button uk-button-default"  type="submit">
+    	<button class="uk-button uk-button-default submit-button"  type="submit">
 				Új elem hozzáadása
 		</button>
     </fieldset>
 </form>
 <script>
-
 	$(document).ready(function(){
 	
 		$(".name-text").change(function() {
@@ -36,6 +41,5 @@
 		});	
 		
 	});
-
 </script>
 </div>  

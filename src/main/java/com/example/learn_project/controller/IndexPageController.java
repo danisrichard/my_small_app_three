@@ -13,7 +13,7 @@ import com.example.learn_project.service.ScoreInformationService;
 public class IndexPageController {
 	
 	@Autowired
-	ScoreInformationService mcg;
+	private ScoreInformationService mcg;
 	
 	@Value("${app.version}")
 	private String appVersion;
@@ -34,6 +34,14 @@ public class IndexPageController {
 	public String loadLoginPage() {
 		
 		return "login";
+	}
+	
+	@GetMapping("/logout")
+	public String logooutPage() {
+		
+		// még nem müködik
+		
+		return "redirect:/login";
 	}
 	
 }

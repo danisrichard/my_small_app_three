@@ -23,4 +23,4 @@ INSERT INTO MICRO_GAME_USER VALUES(user_seq.NEXTVAL,'Boss',SYSDATE);
 
 commit;
 
-INSERT INTO LATEST_RESULT_TABLE(user_id,user_score,update_time) values (2,'2 - 3',SYSDATE);
+INSERT INTO LATEST_RESULT_TABLE(user_id,user_score,update_time) values (22,'2 - 3',SYSDATE);
