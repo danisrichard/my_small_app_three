@@ -16,15 +16,14 @@ public class ShopService {
 	ShopRepository shopRepository;
 
 	public List<ShopItem> getAllShopItem() {
-		return null;
+		return shopRepository.getAllItemFromDB();
 	}
 
 	public void updateOrders(Map<ShopItem, Integer> shopItems) {
 		shopRepository.updateShopItem(shopItems);
 	}
 	
-	public Map<ShopItem, Integer> getItemsByOrderId(int orderID){
-		return null;
+	public List<ShopItem> getUserOrderByOrderId(int orderID){
+		return shopRepository.getItemsByOrderId(orderID);
 	}
-
 }

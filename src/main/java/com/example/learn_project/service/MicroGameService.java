@@ -29,7 +29,10 @@ public class MicroGameService {
         
         for (int i = 0; i < moves.length; i++ ) {
             if (i > 0)
+<<<<<<< refs/remotes/origin/add_shop_backend
                 System.out.print(", ");    
+=======
+>>>>>>> updates
             choice = moves[i][0];
         }
         

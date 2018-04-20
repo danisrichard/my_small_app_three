@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +27,10 @@ public class ShopPageController {
 	// miután updateOrders succes üríteni a map-et
 	
 	@GetMapping("/shop-index")
-	public String loadShopIndex(Model model) {
+	public String loadShopIndexPage(Model model) {
 		
 		List<ShopItem> shopItemList = shopService.getAllShopItem();
+	
 		
 		model.addAttribute("shopItemList",shopItemList);
 		
@@ -43,6 +45,7 @@ public class ShopPageController {
 	
 	@GetMapping("/shop-form")
 	public String shopForm() {
+		
 		return null;
 	}
 	

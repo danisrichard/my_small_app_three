@@ -24,3 +24,11 @@ INSERT INTO MICRO_GAME_USER VALUES(user_seq.NEXTVAL,'Boss',SYSDATE);
 commit;
 
 INSERT INTO LATEST_RESULT_TABLE(user_id,user_score,update_time) values (22,'2 - 3',SYSDATE);
+
+commit;
+
+CREATE SEQUENCE shop_item_seq START WITH 1;
+
+INSERT INTO SHOP_ITEMS(item_id,item_name,item_desc,item_value,ITEM_QUANTITY) values(shop_item_seq.NEXTVAL,'Sapka','Maecenas tincidunt fermentum leo in ornare.',3321,4);
+
+commit;
