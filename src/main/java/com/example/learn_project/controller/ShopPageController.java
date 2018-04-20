@@ -2,9 +2,13 @@ package com.example.learn_project.controller;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,22 +32,37 @@ public class ShopPageController {
 	private Map<ShopItem,Integer> shopCart = new HashMap<>();
 	// miután updateOrders succes üríteni a map-et
 	
+	private List<ShopItem> shopItemList = new ArrayList<>();
+	
 	@GetMapping("/shop-index")
 	public String loadShopIndexPage(Model model) {
 		
-		List<ShopItem> shopItemList = shopService.getAllShopItem();
+		shopItemList = shopService.getAllShopItem();
 		
-		logger.info("ItemList: " + shopItemList);
+		logger.debug("ItemList: " + shopItemList);
 		
 		model.addAttribute("shopItemList",shopItemList);
 		
 		return "shop/shop-index";
 	}
 	
-	@GetMapping("/shop-cart-element")
-	public String loadShopCart(Model model) {
+	@GetMapping("/add-cart-element")
+	public String loadShopCart(Model model, @RequestParam("itemID") int itemID, @RequestParam("quantity") int itemQuantity) {
 		
-		return null;
+		logger.debug("ItemID: " + itemID + " ,itemQuantity: " + itemQuantity);
+		
+		ShopItem currentShopItem = shopItemList.stream()
+												 .filter( p -> p.getId() == itemID)
+												 .findFirst().get();
+		
+		//int itemValue = shopCart.get(currentShopItem); //igy is meglehet nézni hogy tartalamzza-e az elemet, ha nem NULL a viszatérés
+		// if(itemValue == null ) ....
+
+		shopCart.put(currentShopItem, itemQuantity);
+		
+		model.addAttribute("shopCartHashMap",shopCart);
+		
+		return "shop/shop-cart";
 	}
 	
 	@GetMapping("/shop-form")

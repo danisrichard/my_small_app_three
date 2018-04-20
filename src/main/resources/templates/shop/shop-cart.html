@@ -1,4 +1,14 @@
- <div th:fragment="cart-item" xmlns:th="http://www.thymeleaf.org" id="column-select" class="uk-container">	    
-   	
-   <h3>Bevásárlókosár</h3>
+
+<div th:fragment="cart-item" xmlns:th="http://www.thymeleaf.org"
+	id="cart-item" class="uk-container">
+
+	<h3>Bevásárlókosár</h3>
+
+	<div th:each="list : ${shopCartHashMap}">
+		<div class="uk-card uk-card-default uk-card-small uk-card-body">
+			<h3 class="uk-card-title">Small</h3>
+			<p th:text="${list.value}"></p>
+			<p th:text="${list.key.itemName}"></p>
+		</div>
+	</div>
 </div>

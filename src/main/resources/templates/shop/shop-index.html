@@ -15,9 +15,7 @@
 		</div>
 		<div id="offcanvas-slide" uk-offcanvas>
 			<div class="uk-offcanvas-bar">
-
 				<button class="uk-offcanvas-close" type="button" uk-close></button>
-
 				<div id="cart-item" th:replace="shop/shop-cart"></div>
 			</div>
 		</div>
@@ -31,23 +29,28 @@
 				<div th:each="shopList : ${shopItemList}">
 					<div class="uk-card uk-card-default uk-card-body">
 						<h3 class="uk-card-title" th:text="${shopList.itemName}"></h3>
-						<p th:text="${shopList.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						<p th:text="${shopList.description}"></p>
 						<p th:text="${shopList.itemValue}"></p>
 						<p th:text="${shopList.quantity}"></p>
-						<button class="uk-button" th:value="${shopList.id}">Vásárlás</button>
+						<button class="uk-button add-to-cart-btn" th:value="${shopList.id}">Kosárba</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 <script>
 
 $(document).ready(function(){
-
-	$(".uk-button").click(function(){
+	$(".add-to-cart-btn").click(function(){
 		console.log($(this).val());
+		ajaxGet(
+				'/add-cart-element',
+				{itemID : $(this).val(), quantity : 0},
+				function(result){
+					$("#cart-item").replaceWith(result);
+				}
+			)
 	});
 
 });
