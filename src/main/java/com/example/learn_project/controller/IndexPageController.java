@@ -1,5 +1,6 @@
 package com.example.learn_project.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import com.example.learn_project.service.ScoreInformationService;
 @Controller
 public class IndexPageController {
 	
+	private static final Logger logger = Logger.getLogger(IndexPageController.class);
+	
 	@Autowired
 	private ScoreInformationService mcg;
 	
@@ -23,6 +26,8 @@ public class IndexPageController {
 
 	@GetMapping("/index")
 	public String loadIndexPage(Model model) {
+		
+		logger.debug("this will appear as a log in mylogfile.log!");
 		
 		model.addAttribute("appVersion",appVersion);
 		model.addAttribute("appName",appName);

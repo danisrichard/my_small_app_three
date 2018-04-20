@@ -31,7 +31,10 @@
 				<div th:each="shopList : ${shopItemList}">
 					<div class="uk-card uk-card-default uk-card-body">
 						<h3 class="uk-card-title" th:text="${shopList.itemName}"></h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						<p th:text="${shopList.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						<p th:text="${shopList.itemValue}"></p>
+						<p th:text="${shopList.quantity}"></p>
+						<button class="uk-button" th:value="${shopList.id}">Vásárlás</button>
 					</div>
 				</div>
 			</div>
@@ -40,5 +43,14 @@
 
 </body>
 <script>
+
+$(document).ready(function(){
+
+	$(".uk-button").click(function(){
+		console.log($(this).val());
+	});
+
+});
+
 </script>
 </html>
