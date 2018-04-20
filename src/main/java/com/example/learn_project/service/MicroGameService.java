@@ -27,32 +27,25 @@ public class MicroGameService {
 
         ArrayList<String> resultList = new ArrayList<>();
         
-        System.out.print("Choose: ");
         for (int i = 0; i < moves.length; i++ ) {
             if (i > 0)
-                System.out.print(", ");             
-            System.out.print(moves[i][0]);
+                System.out.print(", ");    
             choice = moves[i][0];
         }
-        System.out.println(".");
         
         choice = microGamer1.toLowerCase();
         
-        System.out.println("System chose " + moves[num][0]);
         
         resultList.add(moves[num][0]);
         
         if (choice.matches(moves[num][0])) {
-            System.out.println("Its a tie!");
             resultList.add("tie");
             playerPoint++;
             robotPoint++;
         } else if (choice.matches(moves[num][1])) {
-            System.out.println("You win!");
             resultList.add("win");
             playerPoint++;
         } else {
-            System.out.println("You lose!");
             resultList.add("lose");
             robotPoint++;
         }
