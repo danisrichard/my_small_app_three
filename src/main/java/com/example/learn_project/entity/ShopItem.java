@@ -5,16 +5,26 @@ public class ShopItem {
 	private String description;
 	private int itemValue;
 	private int id;
+	private int quantity;
 
-	public ShopItem(String itemName, String description, int itemValue, int id) {
+	public ShopItem(String itemName, String description,int itemQuantity, int itemValue, int id) {
 		this.itemName = itemName;
 		this.description = description;
 		this.itemValue = itemValue;
+		this.quantity = itemQuantity;
 		this.id = id;
 	}
 
 	public String getItemName() {
 		return itemName;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public void setItemName(String itemName) {
