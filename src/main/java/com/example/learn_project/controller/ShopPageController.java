@@ -1,14 +1,12 @@
 package com.example.learn_project.controller;
 
+import static org.assertj.core.api.Assertions.entry;
 import static org.hamcrest.CoreMatchers.nullValue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
-
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,11 +49,15 @@ public class ShopPageController {
 		
 		logger.debug("ItemID: " + itemID + " ,itemQuantity: " + itemQuantity);
 		
+		// lamdba <3
+		
 		ShopItem currentShopItem = shopItemList.stream()
 												 .filter( p -> p.getId() == itemID)
 												 .findFirst().get();
 		
-		//int itemValue = shopCart.get(currentShopItem); //igy is meglehet nézni hogy tartalamzza-e az elemet, ha nem NULL a viszatérés
+		logger.debug("Hashcheck: " + currentShopItem.hashCode());
+		
+		// int itemValue = shopCart.get(currentShopItem); //igy is meglehet nézni hogy tartalamzza-e az elemet, ha nem NULL a viszatérés
 		// if(itemValue == null ) ....
 
 		shopCart.put(currentShopItem, itemQuantity);
@@ -65,10 +67,30 @@ public class ShopPageController {
 		return "shop/shop-cart";
 	}
 	
-	@GetMapping("/shop-form")
-	public String shopForm() {
-		
+	@GetMapping("/update-order-list-quantity")
+	public String updateItemListQuantity(Model model) {
+		//not implemented
 		return null;
+	}
+	
+	@GetMapping("/delete-from-cart")
+	public String deleteFromCart(Model model, @RequestParam("itemID") int deleteIDnumb) {
+		
+		logger.debug(" ID want to delete:  " + deleteIDnumb);
+		
+		shopCart.entrySet().removeIf(entry -> entry.getKey().getId() == deleteIDnumb);
+		
+		return "shop/shop-cart";
+	}
+	
+	@GetMapping("/shop-form")
+	public String shopForm(Model model) {
+		
+		logger.debug("Shop-form-list: " + shopCart.toString());
+		
+		model.addAttribute("shopCartHashMap",shopCart);
+		
+		return "shop/shop-form";
 	}
 	
 	@PostMapping("/shop-confirm")

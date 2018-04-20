@@ -1,14 +1,57 @@
-
 <div th:fragment="cart-item" xmlns:th="http://www.thymeleaf.org"
 	id="cart-item" class="uk-container">
 
 	<h3>Bevásárlókosár</h3>
+	
+	<div th:if="!${shopCartHashMap}">
+		<p> A kosár jelenleg üres. </p>
+	</div>
 
 	<div th:each="list : ${shopCartHashMap}">
-		<div class="uk-card uk-card-default uk-card-small uk-card-body">
-			<h3 class="uk-card-title">Small</h3>
-			<p th:text="${list.value}"></p>
-			<p th:text="${list.key.itemName}"></p>
+		<div class="uk-card uk-card-primary uk-card-small uk-card-body">
+			<h3 class="uk-card-title" th:text="${list.key.itemName}"></h3>
+			<p></p>
+			<input class="uk-input" id="uk-input-number" type="number" min="1"
+				th:max="${list.key.quantity}" th:value="${list.value}">
+			<div class="uk-padding-small">
+				<button th:value="${list.key.id}"
+					class="uk-button uk-button-danger uk-button-small uk-button-delete-element"
+					onclick="UIkit.notification({message: ' Elem törölve a kosárból.'})">Töröl</button>
+			</div>
 		</div>
 	</div>
+		
+	<div class="uk-padding-small" th:if="${shopCartHashMap}">
+		<button class="uk-button uk-button-primary uk-btn-finalise">Véglegesítés</button>
+	</div>
 </div>
+
+<!-- /delete-from-cart -->
+<script>
+
+$(document).ready(function(){
+	
+	$(".uk-button-delete-element").click(function(){
+		console.log($(this).val());
+		ajaxGet(
+				'/delete-from-cart',
+				{itemID : $(this).val()},
+				function(result){
+					//window.location.href = "/shop-index";
+					$("#cart-item").replaceWith(result);
+				}
+			)
+	});
+	
+	$(".uk-btn-finalise").click(function(){
+		ajaxGet(
+			'/shop-form',
+			null,
+			function(result){
+				window.location.href="/shop-form";
+			}
+		)
+	});
+});
+
+</script>

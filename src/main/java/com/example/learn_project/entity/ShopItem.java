@@ -82,6 +82,13 @@ public class ShopItem {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "ShopItem [itemName=" + itemName + ", itemValue=" + itemValue + ", id=" + id + ", quantity=" + quantity
+				+ "]";
+	}
+	
 	
 	
 }

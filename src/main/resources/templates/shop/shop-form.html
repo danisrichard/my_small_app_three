@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<div class="uk-container">
+		<h3>Véglegesítés</h3>
+		<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+			<div th:each="list : ${shopCartHashMap}">
+				<div class="uk-card uk-card-primary uk-card-small uk-card-body">
+					<h3 class="uk-card-title" th:text="${list.key.itemName}"></h3>
+					<p></p>
+					<!-- 
+					<input class="uk-input" id="uk-input-number" type="number" min="1"
+						th:max="${list.key.quantity}" th:value="${list.value}">
+					<div class="uk-padding-small">
+						<button th:value="${list.key.id}"
+							class="uk-button uk-button-danger uk-button-small uk-button-delete-element"
+							onclick="UIkit.notification({message: ' Elem törölve a kosárból.'})">Töröl</button>  -->
+				</div>
+			</div>
+		</div>
+		<div class="uk-padding-small">
+			<form>
+				<div class="uk-margin">
+					<div class="uk-inline">
+						<span class="uk-form-icon" uk-icon="icon: user"></span> <input
+							class="uk-input" type="text">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-inline">
+						<span class="uk-form-icon" uk-icon="icon: user"></span> <input
+							class="uk-input" type="text">
+					</div>
+				</div>
+
+				<div class="uk-inline">
+					<a class="uk-form-icon" href="#" uk-icon="icon: pencil"></a> <input
+						class="uk-input" type="text">
+				</div>
+
+				<button class="uk-button uk-button-default" id="uk-submit-button">Rendelés</button>
+
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+</script>
+</html>
