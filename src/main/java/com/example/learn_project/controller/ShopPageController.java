@@ -20,6 +20,8 @@ import com.example.learn_project.service.ShopService;
 @Controller
 public class ShopPageController {
 	
+	private static final Logger logger = Logger.getLogger(ShopPageController.class);
+	
 	@Autowired
 	private ShopService shopService;
 	
@@ -30,7 +32,8 @@ public class ShopPageController {
 	public String loadShopIndexPage(Model model) {
 		
 		List<ShopItem> shopItemList = shopService.getAllShopItem();
-	
+		
+		logger.debug("ItemList " + shopItemList);
 		
 		model.addAttribute("shopItemList",shopItemList);
 		
