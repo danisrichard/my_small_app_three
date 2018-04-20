@@ -22,15 +22,15 @@
 			</div>
 		</div>
 		
-		<div th:if="!${listOfShopItems}">
+		<div th:if="!${shopItemList}">
 			<h3> A webshopban nincsen tartalom jelenleg.</h3>
 		</div>
 		
-		<div th:if="${listOfShopItems}">
+		<div th:if="${shopItemList}">
 			<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-				<div>
+				<div th:each="shopList : ${shopItemList}">
 					<div class="uk-card uk-card-default uk-card-body">
-						<h3 class="uk-card-title">Default</h3>
+						<h3 class="uk-card-title" th:text="${shopList.itemName}"></h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 					</div>
 				</div>

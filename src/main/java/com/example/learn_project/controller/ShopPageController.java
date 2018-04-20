@@ -33,7 +33,7 @@ public class ShopPageController {
 		
 		List<ShopItem> shopItemList = shopService.getAllShopItem();
 		
-		logger.debug("ItemList " + shopItemList);
+		logger.info("ItemList: " + shopItemList);
 		
 		model.addAttribute("shopItemList",shopItemList);
 		
