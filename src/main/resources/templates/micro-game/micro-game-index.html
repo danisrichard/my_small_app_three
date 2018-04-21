@@ -76,7 +76,6 @@ $(document).ready(function(){
 		$(".player-choice").click(function() {
 			
 			console.log($(this).val());
-			
 			ajaxGet(
 				'/playgame',
 				{ playerChoice : $(this).val() },

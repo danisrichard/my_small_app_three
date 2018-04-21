@@ -32,3 +32,11 @@ CREATE SEQUENCE shop_item_seq START WITH 1;
 INSERT INTO SHOP_ITEMS(item_id,item_name,item_desc,item_value,ITEM_QUANTITY) values(shop_item_seq.NEXTVAL,'Sapka','Maecenas tincidunt fermentum leo in ornare.',3321,4);
 
 commit;
+
+INSERT INTO SHOP_ITEMS(item_id,item_name,item_desc,item_value,ITEM_QUANTITY) values(shop_item_seq.NEXTVAL,'Macska','Maecenas tincidunt fermentum leo in ornare.',1500,10);
+
+commit;
+
+INSERT INTO SHOP_ITEMS(item_id,item_name,item_desc,item_value,ITEM_QUANTITY) values(shop_item_seq.NEXTVAL,'Ágy','Maecenas tincidunt. ',9990,2);
+
+commit;

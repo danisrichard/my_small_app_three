@@ -49,13 +49,13 @@ public class ShopPageController {
 		
 		logger.debug("ItemID: " + itemID + " ,itemQuantity: " + itemQuantity);
 		
-		// lamdba <3
-		
 		ShopItem currentShopItem = shopItemList.stream()
 												 .filter( p -> p.getId() == itemID)
 												 .findFirst().get();
 		
 		logger.debug("Hashcheck: " + currentShopItem.hashCode());
+		
+		logger.debug("GetCurrentShopItem: " + currentShopItem.toString());
 		
 		// int itemValue = shopCart.get(currentShopItem); //igy is meglehet nézni hogy tartalamzza-e az elemet, ha nem NULL a viszatérés
 		// if(itemValue == null ) ....
@@ -83,9 +83,10 @@ public class ShopPageController {
 		return "shop/shop-cart";
 	}
 	
-	@GetMapping("/shop-form")
+	@GetMapping("/shop-form-page")
 	public String shopForm(Model model) {
 		
+		logger.debug("shop-form-page");
 		logger.debug("Shop-form-list: " + shopCart.toString());
 		
 		model.addAttribute("shopCartHashMap",shopCart);
@@ -96,6 +97,14 @@ public class ShopPageController {
 	@PostMapping("/shop-confirm")
 	public String shopConfirmation(Model model, @RequestParam("emailAddress")String emailAddress,@RequestParam("firstName") String firstName, @RequestParam("secondName") String secondName) {
 		
-		return null;
+		logger.debug("Params: " + "email: " +  emailAddress + " - firstname: " + firstName + " - secondName: " + secondName);
+		
+		
+		
+		int orderID = 2;
+		 
+		model.addAttribute("Sikeres rendelés" + orderID);
+		
+		return "shop/shop-success";
 	}
 }
